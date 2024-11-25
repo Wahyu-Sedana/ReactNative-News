@@ -1,6 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
-import { buttonStyles } from './Button.styles';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 type ButtonProps = {
   title: string;
@@ -8,7 +7,7 @@ type ButtonProps = {
   outline?: boolean;
 };
 
-export default function Button({ title, onPress, outline = false }: ButtonProps) {
+const Button = ({ title, onPress, outline = false }: ButtonProps) => {
   return (
     <TouchableOpacity
       style={outline ? buttonStyles.buttonOutline : buttonStyles.button}
@@ -20,3 +19,35 @@ export default function Button({ title, onPress, outline = false }: ButtonProps)
     </TouchableOpacity>
   );
 }
+
+const buttonStyles = StyleSheet.create({
+  button: {
+    height: 50,
+    backgroundColor: '#6200ea',
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  buttonOutline: {
+    height: 50,
+    borderWidth: 1,
+    borderColor: '#6200ea',
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  buttonOutlineText: {
+    color: '#6200ea',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+});
+
+export default Button;
